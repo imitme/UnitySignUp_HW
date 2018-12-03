@@ -181,7 +181,9 @@ public class LoginManager_0 : MonoBehaviour {
             {
                 string cookie = www.GetResponseHeader("set-cookie");  //Dictionary<string, string> headers = www.GetResponseHeaders();
                 int lastIdx = cookie.IndexOf(';');
-                string username = cookie.Substring(9,lastIdx-9); //문자열 필요부분(유저네임) 추출
+                string sId = cookie.Substring(0, lastIdx);
+                string username = cookie.Substring(9, lastIdx-9);  //string username = cookie.Substring(9,lastIdx-9); //문자열 필요부분(유저네임) 추출
+                
 
                 string resultStr = www.downloadHandler.text;
                 var result = JsonUtility.FromJson<LoginResult>(resultStr); 
@@ -192,11 +194,16 @@ public class LoginManager_0 : MonoBehaviour {
                     {
                         PlayerPrefs.SetString("username", username);
                     }
+                    if (!string.IsNullOrEmpty(sId))
+                    {
+                        PlayerPrefs.SetString("sId", sId);
+                    }
 
                     UIManager.username = form.username;
                     UIManager.password = form.password;
-                    SceneManager.LoadScene("LoginScene_Lobby");
-                    
+                    //SceneManager.LoadScene("LoginScene_Lobby");
+                    SceneManager.LoadScene("Game");
+
                 }
                 Debug.Log(www.downloadHandler.text);
             }
