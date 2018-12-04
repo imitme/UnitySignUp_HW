@@ -8,16 +8,19 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LoginScene_0.unity
     guid: 2c890e33894973c4684636fc6f1919d4
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game.unity
     guid: 0a5efaa26eda4ef4aa1eabb23173698f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LoginScene_Lobby.unity
     guid: 2f3b32c03e5ecbd4e9b9ec78121cf7c5
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestGame.unity
     guid: c298c5680159d3c4f9e09ddbc8e68198
+  - enabled: 1
+    path: Assets/Scenes/ChatScene.unity
+    guid: 0e61b9a525c16c04b8ce6adb2abf7abe
   m_configObjects: {}

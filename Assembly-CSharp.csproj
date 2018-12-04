@@ -61,11 +61,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\GameManager.cs" />
-    <Compile Include="Assets\LoginManager.cs" />
-    <Compile Include="Assets\LoginManager_0.cs" />
-    <Compile Include="Assets\LoginManager_homework.cs" />
-    <Compile Include="Assets\NetworkManager.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\LoginManager.cs" />
+    <Compile Include="Assets\Scripts\LoginManager_0.cs" />
+    <Compile Include="Assets\Scripts\LoginManager_homework.cs" />
+    <Compile Include="Assets\Scripts\NetworkChatManager.cs" />
+    <Compile Include="Assets\Scripts\NetworkManager.cs" />
+    <Compile Include="Assets\Scripts\UIGameManager.cs" />
+    <Compile Include="Assets\Scripts\UIManager.cs" />
     <Compile Include="Assets\SocketIO\JSONObject\JSONObject.cs" />
     <Compile Include="Assets\SocketIO\JSONObject\JSONTemplates.cs" />
     <Compile Include="Assets\SocketIO\JSONObject\VectorTemplates.cs" />
@@ -146,8 +149,6 @@
     <Compile Include="Assets\SocketIO\WebsocketSharp\WebSocketFrame.cs" />
     <Compile Include="Assets\SocketIO\WebsocketSharp\WebSocketState.cs" />
     <Compile Include="Assets\SocketIO\WebsocketSharp\WebSocketStream.cs" />
-    <Compile Include="Assets\UIGameManager.cs" />
-    <Compile Include="Assets\UIManager.cs" />
     <None Include="Assets\SocketIO\JSONObject\readme.txt" />
     <None Include="Assets\SocketIO\Readme.txt" />
     <Reference Include="UnityEditor.StandardEvents">
