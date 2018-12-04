@@ -10,7 +10,6 @@ public struct LoginForm
 {
     public string username;
     public string password;
-
 }
 
 
@@ -30,7 +29,7 @@ public class UIManager : MonoBehaviour
         loginForm.password = password;
 
 
-        StartCoroutine(GetNickName(loginForm));
+//        StartCoroutine(GetNickName(loginForm));
 
         StartCoroutine(GetUserInfo());
     }
@@ -43,7 +42,6 @@ public class UIManager : MonoBehaviour
             if (!string.IsNullOrEmpty(username))
             {
                 www.SetRequestHeader("Cookie", "username=" + username);
-
             }
 
             yield return www.Send();
@@ -56,12 +54,13 @@ public class UIManager : MonoBehaviour
     IEnumerator GetNickName(LoginForm form)
     {
         string postData = JsonUtility.ToJson(form);
-   //     byte[] sendData = Encoding.UTF8.GetBytes(postData);
-        using (UnityWebRequest www =
-               UnityWebRequest.Put("http://localhost:3000/users/SendNickname", postData))
+        //byte[] sendData = Encoding.UTF8.GetBytes(postData);
+
+        using (UnityWebRequest www = UnityWebRequest.Put("http://localhost:3000/users/SendNickname", postData))
         {
             www.method = "POST";
-            www.SetRequestHeader("Context-Type", "application/json");
+            www.SetRequestHeader("Content-Type", "application/json");
+
             yield return www.Send();
 
             if (www.isNetworkError || www.isHttpError)
