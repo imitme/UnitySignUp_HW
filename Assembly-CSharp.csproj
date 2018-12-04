@@ -67,6 +67,8 @@
     <Compile Include="Assets\Scripts\LoginManager_homework.cs" />
     <Compile Include="Assets\Scripts\NetworkChatManager.cs" />
     <Compile Include="Assets\Scripts\NetworkManager.cs" />
+    <Compile Include="Assets\Scripts\TicTacToeManager.cs" />
+    <Compile Include="Assets\Scripts\TicTacToeNetwork.cs" />
     <Compile Include="Assets\Scripts\UIGameManager.cs" />
     <Compile Include="Assets\Scripts\UIManager.cs" />
     <Compile Include="Assets\SocketIO\JSONObject\JSONObject.cs" />
