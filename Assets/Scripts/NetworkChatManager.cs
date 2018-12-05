@@ -12,6 +12,7 @@ public class NetworkChatManager : MonoBehaviour
     public Text messageText;
     string nickname;
 
+
     void Start()
     {
         GameObject io = GameObject.Find("SocketIO");
@@ -19,6 +20,8 @@ public class NetworkChatManager : MonoBehaviour
 
         nickname = "hong";  //TODO: 서버 닉네임 가져오기!
         socket.On("chat", UpdateMessage);
+
+        
     }
     public void UpdateMessage(SocketIOEvent e )
     {
