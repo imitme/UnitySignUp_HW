@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public enum PlayerType { PlayerOne, PlayerTwo }
 public enum GameState
@@ -17,8 +18,9 @@ public class TicTacToeManager : MonoBehaviour {
     
     public Sprite circleSprite;  
     public Sprite crossSprite;
-    public GameObject[] cells; 
-    
+    public GameObject[] cells;
+    public RectTransform gameOverPanel;
+
     enum Mark { Circle, Cross }
 
     PlayerType playerType;              
@@ -93,8 +95,23 @@ public class TicTacToeManager : MonoBehaviour {
                 playerType == PlayerType.PlayerOne ? 1 : 0;
         }
 
+        /*
         cells[cellIndex].GetComponent<SpriteRenderer>().sprite = markSprite;
         cells[cellIndex].GetComponent<BoxCollider2D>().enabled = false;
+        */
+
+        GameObject go = cells[cellIndex];
+        go.GetComponent<SpriteRenderer>().sprite = markSprite;
+        go.GetComponent<BoxCollider2D>().enabled = false;
+        
+        go.transform.DOScale(2, 0).OnComplete(
+            () =>
+            {
+                go.transform.DOScale(1, 1).SetEase(Ease.OutBounce);
+                go.GetComponent<SpriteRenderer>().DOFade(1, 1);
+                Camera.main.DOShakePosition(0.5f, 1, 15);
+            }
+        );
 
         //턴 변경
         //1 게임이 계속 진행중이어야 한다.
@@ -113,11 +130,13 @@ public class TicTacToeManager : MonoBehaviour {
         else
         {
             gameState = GameState.GameOver;
+            gameOverPanel.anchoredPosition = new Vector2(0, 0);
             //TODO : 게임의 결과 화면에 표시
 
             if (result == Winner.Player)
             {
                 Debug.Log("Player Win");
+                ShowGameOverPanel();
             }
             else if (result == Winner.Opponent)
             {
@@ -128,6 +147,7 @@ public class TicTacToeManager : MonoBehaviour {
                 Debug.Log("Tie");
             }
         }
+        
     }
 
     Winner CheckWinner()
@@ -211,7 +231,6 @@ public class TicTacToeManager : MonoBehaviour {
             }
         }
 
-
         {
             int num = 0;
             foreach (int cellState in cellStates)
@@ -242,6 +261,13 @@ public class TicTacToeManager : MonoBehaviour {
         }
     }
 
+
+    public void ShowGameOverPanel()
+    {
+        //gameOverPanel.DOLocalMove
+        gameOverPanel.DOLocalMoveY(0, 1).SetEase(Ease.InOutBack);
+        gameOverPanel.GetComponent<CanvasGroup>().DOFade(1, 5);
+    }
 
 
 }
