@@ -202,7 +202,8 @@ public class LoginManager_0 : MonoBehaviour {
                     UIManager.username = form.username;
                     UIManager.password = form.password;
                     //SceneManager.LoadScene("LoginScene_Lobby");
-                    SceneManager.LoadScene("Game");
+                    //SceneManager.LoadScene("Game");
+                    SceneManager.LoadScene("TicTacToe");
 
                 }
                 Debug.Log(www.downloadHandler.text);
