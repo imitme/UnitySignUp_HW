@@ -138,8 +138,9 @@ public class LoginManager_0 : MonoBehaviour {
     {
         string postData = JsonUtility.ToJson(form);
         byte[] sendData = Encoding.UTF8.GetBytes(postData);
-        using (UnityWebRequest www = 
-               UnityWebRequest.Put("http://localhost:3000/users/add", postData))
+        using (UnityWebRequest www =
+               //UnityWebRequest.Put("http://localhost:3000/users/add", postData))
+               UnityWebRequest.Put("https://tictactoe401.herokuapp.com/users/add", postData))
         {
             www.method = "POST";
             www.SetRequestHeader("Content-Type", "application/json");
@@ -165,8 +166,9 @@ public class LoginManager_0 : MonoBehaviour {
         string postData = JsonUtility.ToJson(form);
         //byte[] sendData = Encoding.UTF8.GetBytes(postData);
         using (UnityWebRequest www =
-               UnityWebRequest.Put("http://localhost:3000/users/signin", postData))
-        {
+               //UnityWebRequest.Put("http://localhost:3000/users/signin", postData))
+               UnityWebRequest.Put("https://tictactoe401.herokuapp.com/users/signin", postData))
+            {
             www.method = "POST";
             www.SetRequestHeader("Content-Type", "application/json");
             yield return www.Send();
@@ -182,13 +184,13 @@ public class LoginManager_0 : MonoBehaviour {
                 string cookie = www.GetResponseHeader("set-cookie");  //Dictionary<string, string> headers = www.GetResponseHeaders();
                 int lastIdx = cookie.IndexOf(';');
                 string sId = cookie.Substring(0, lastIdx);
-                string username = cookie.Substring(9, lastIdx-9);  //string username = cookie.Substring(9,lastIdx-9); //문자열 필요부분(유저네임) 추출
-                
+                string username = cookie.Substring(9, lastIdx - 9);  //string username = cookie.Substring(9,lastIdx-9); //문자열 필요부분(유저네임) 추출
+
 
                 string resultStr = www.downloadHandler.text;
-                var result = JsonUtility.FromJson<LoginResult>(resultStr); 
-                
-                if (result.result ==2)   //resultStr.Equals("success"))
+                var result = JsonUtility.FromJson<LoginResult>(resultStr);
+
+                if (result.result == 2)   //resultStr.Equals("success"))
                 {
                     if (!string.IsNullOrEmpty(username))
                     {

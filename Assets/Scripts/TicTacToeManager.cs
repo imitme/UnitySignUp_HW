@@ -130,13 +130,14 @@ public class TicTacToeManager : MonoBehaviour {
         else
         {
             gameState = GameState.GameOver;
-            gameOverPanel.anchoredPosition = new Vector2(0, 0);
+            ShowGameOverPanel();
+           // gameOverPanel.anchoredPosition = new Vector2(0, 0);
             //TODO : 게임의 결과 화면에 표시
 
             if (result == Winner.Player)
             {
                 Debug.Log("Player Win");
-                ShowGameOverPanel();
+                
             }
             else if (result == Winner.Opponent)
             {

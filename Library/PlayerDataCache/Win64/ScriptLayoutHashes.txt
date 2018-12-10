@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-D:/KM/Documents/serverProjectTest/ServerUnity_HW/Build/test/20171127_AddAccount.exe
+D:/KM/Documents/serverProjectTest/ServerUnity_HW/Build/Build7_서버주소변경/20171127_AddAccount.exe
 SceneListBegin?
 Assets/Scenes/LoginScene_0.unity
 Assets/Scenes/TicTacToe.unity
